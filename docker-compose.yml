@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    image: satishri/hello-world:latest
+    container_name: helloworldapp
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: helloworlddb
+    environment:
+      POSTGRES_USER: satish
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: helloworld
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
