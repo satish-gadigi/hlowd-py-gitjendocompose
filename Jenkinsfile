@@ -35,20 +35,18 @@ pipeline {
 					}
 				}
 			}
-			stage('Cleanup Old Containers basedon port') {
+			stage('Cleanup Old Containers') {
 				steps {
 					sh '''
-					# Stop and remove container if it already running on 8080 port
+# Stop and remove all containers from this compose project
+						docker-compose -f docker-compose.yml down --remove-orphans || true
 
-						docker ps -q --filter "publish=8080" | xargs -r docker rm -f
-
-					# Stop existing stack if running
-
-						docker-compose -f docker-compose.yml down || true
+# Extra safety: remove any leftover containers by name
+						docker rm -f hlowd-py-gitjendocomposedb || true
+						docker rm -f hlowd-py-gitjendocompose || true
 						'''
 				}
 			}
-
 			//stage('Deploy')	{
 			//	steps {
 			//sh 'docker run -d --name helloworldappusingjenkins -p 8081:8080 satishri/hello-world:latest'
@@ -58,7 +56,7 @@ pipeline {
 				steps {
 					sh '''
 
-						# Start new stack
+# Start new stack
 						docker-compose -f docker-compose.yml up -d --build
 						'''
 				}
