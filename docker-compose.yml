@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   app:
-    image: satishri/hello-world:latest
-    container_name: helloworldapp
+    image: satishri/hlowd-py-gitjendocompose:latest
+    container_name: hlowd-py-gitjendocompose
     ports:
       - "8081:8080"
     depends_on:
@@ -11,11 +11,11 @@ services:
 
   db:
     image: postgres:15
-    container_name: helloworlddb
+    container_name: hlowd-py-gitjendocomposedb
     environment:
       POSTGRES_USER: satish
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: helloworld
+      POSTGRES_DB: hlowd-py-gitjendocompose
     volumes:
       - db_data:/var/lib/postgresql/data
 
