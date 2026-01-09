@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return """Hello, World from automation using below scenarios <br><br>
+    return """Hello, World from docker-compose using below scenarios <br><br>
 This has been implemented by using my Mobile and PC. My PC has low configuration machine to implement devops so I am using my mobile which is high configurations to install Jenkins. Docker and Kubernetes can't run in mobile because docker build needs real linux kernal. So I have installed Docker and kuberenetes which ever require full linux support and these can be handled by machine with little slowness. <br><br>
 
 In Mobile:<br><br>
