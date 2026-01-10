@@ -50,7 +50,7 @@ Status: Yet to start<br><br>
 ===============================================================================================================================================<br><br>
 Faced ssh issues in my PC so switched to PC only mode, excluding mobile setup from here onwards. Installed Jenkins in my PC and implementing now whole setup in PC <br><br>
 
-----END----
+-----END----
 
 """
 
